@@ -4,4 +4,5 @@ project(gh_ci_demo)
 
 add_executable(main src/main.cpp)
 
-
+enable_testing()
+add_subdirectory(test)
