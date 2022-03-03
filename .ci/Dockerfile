@@ -19,4 +19,4 @@ ENV DEBIAN_FRONTEND=noninteractive
 
 ARG WORKSPACE
 
-CMD ["./build_and_run.sh"]
+CMD ["./.ci/build_and_run.sh"]
