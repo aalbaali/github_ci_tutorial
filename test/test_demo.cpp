@@ -1,5 +1,5 @@
 #include "gtest/gtest.h"
 
 TEST(TestDemo, TestDemo) {
-  EXPECT_TRUE(true);
+  EXPECT_TRUE(false);
 }
