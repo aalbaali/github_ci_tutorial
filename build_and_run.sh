@@ -1,8 +1,5 @@
 #!/bin/sh
 
-mkdir build/
-cd build
-
-cmake ..
-make
-./main
+cmake -S . -B build
+cmake --build build
+cd build && ctest
