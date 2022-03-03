@@ -8,10 +8,10 @@ jobs:
 
     steps:
       - name: Checkout code
-      - uses: actions/checkout@v2
+        uses: actions/checkout@v2
 
       - name: Build Docker image
-      - run: docker build -t gh_ci_image .
+        run: docker build -t gh_ci_image .
 
       - name: Run tests from Docker container
-      - run: docker run --rm -v $PWD:/workspace -w /workspace gh_ci_image:latest
+        run: docker run --rm -v $PWD:/workspace -w /workspace gh_ci_image:latest
