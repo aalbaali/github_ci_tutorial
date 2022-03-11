@@ -18,3 +18,24 @@ jobs:
 
       - name: Run tests from Docker container
         run: docker run --rm -v $PWD:/workspace -w /workspace $DOCKER_IMAGE_NAME:latest
+
+  codecov:
+    name: Build
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      
+      - name: Build using CMake
+        run: mkdir build && cd build && cmake -DCMAKE_BUILD_TYPE=Debug --coverage ..
+      
+      - name: install gcovr
+        run: pip3 install --no-input gcovr
+
+      - name: Run gcovr
+        working-directory: ${{env.working-directory}}
+        run: gcovr --xml-pretty > report.xml
+      
+      - name: Upload codecov
+        uses: codecov/codecov-action@v1

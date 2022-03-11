@@ -10,7 +10,7 @@ FetchContent_MakeAvailable(googletest)
 # find_package(GTest REQUIRED)
 
 add_executable(test_demo test_demo.cpp)
-target_link_libraries(test_demo gtest_main)
+target_link_libraries(test_demo utils gtest_main)
 
 include(GoogleTest)
 gtest_discover_tests(test_demo)
