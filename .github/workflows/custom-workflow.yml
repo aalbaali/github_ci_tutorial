@@ -20,7 +20,7 @@ jobs:
         run: docker run --rm -v $PWD:/workspace -w /workspace $DOCKER_IMAGE_NAME:latest
 
   codecov:
-    name: Build
+    name: Codecov
     runs-on: ubuntu-latest
     
     steps:
@@ -28,7 +28,7 @@ jobs:
         uses: actions/checkout@v2
       
       - name: Build using CMake
-        run: mkdir build && cd build && cmake -DCMAKE_BUILD_TYPE=Debug --coverage ..
+        run: mkdir build && cd build && cmake -DCMAKE_BUILD_TYPE=Debug ..
       
       - name: install gcovr
         run: pip3 install --no-input gcovr
