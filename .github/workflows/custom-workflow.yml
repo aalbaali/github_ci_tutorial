@@ -30,9 +30,9 @@ jobs:
       - name: Build using CMake
         working-directory: ${{env.working-directory}}
         run: cd build
-            cmake ..
-            make
-            make test
+            && cmake ..
+            && make
+            && make test
       
       - name: install gcovr
         run: pip3 install --no-input gcovr
