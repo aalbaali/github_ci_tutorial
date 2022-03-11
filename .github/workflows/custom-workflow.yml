@@ -28,14 +28,19 @@ jobs:
         uses: actions/checkout@v2
       
       - name: Build using CMake
-        run: mkdir build && cd build && cmake -DCMAKE_BUILD_TYPE=Debug ..
+        run:
+            mkdir build
+            cd build
+            cmake ..
+            make
+            make test
       
-      - name: install lcov
-        run: sudo apt-get -y install --no-install-recommends lcov
+      - name: install gcovr
+        run: pip3 install --no-input gcovr
 
       - name: Run gcovr
         working-directory: ${{env.working-directory}}
-        run: lcov --directory . --capture --output-file coverage.info
+        run: gcovr -r ./ build --xml-pretty > report.xml
       
       - name: Upload codecov
-        uses: codecov/codecov-action@v2
+        uses: codecov/codecov-action@v1
