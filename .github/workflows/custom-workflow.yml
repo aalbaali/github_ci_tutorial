@@ -30,8 +30,8 @@ jobs:
       - name: Build using CMake
         run: mkdir build && cd build && cmake -DCMAKE_BUILD_TYPE=Debug ..
       
-      - name: install gcovr
-        run: pip3 install --no-input gcovr
+      - name: install lcov
+        run: sudo apt-get -y install --no-install-recommends lcov
 
       - name: Run gcovr
         working-directory: ${{env.working-directory}}
