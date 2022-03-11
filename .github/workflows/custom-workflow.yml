@@ -35,7 +35,7 @@ jobs:
 
       - name: Run gcovr
         working-directory: ${{env.working-directory}}
-        run: gcovr --xml-pretty > report.xml
+        run: lcov --directory . --capture --output-file coverage.info
       
       - name: Upload codecov
         uses: codecov/codecov-action@v2
