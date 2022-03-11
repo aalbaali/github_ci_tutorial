@@ -29,7 +29,8 @@ jobs:
       
       - name: Build using CMake
         working-directory: ${{env.working-directory}}
-        run: cd build
+        run: mkdir build
+            && cd build
             && cmake ..
             && make
             && make test
