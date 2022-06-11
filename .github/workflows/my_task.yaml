@@ -1,8 +1,5 @@
 name: my-task
 on:
-  push:
-    branches:
-      - devel
   workflow_run:
     workflows: [conditional-workflow, workflows-demo]
     types: [completed]
