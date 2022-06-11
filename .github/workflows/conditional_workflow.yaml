@@ -1,7 +1,8 @@
 name: conditional-workflow
 on:
-  branches:
-    - devel
+  push:
+    branches:
+      - devel
 
 jobs:
   echo-dir:
