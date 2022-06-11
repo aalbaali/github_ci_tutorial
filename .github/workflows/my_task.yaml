@@ -12,6 +12,7 @@ jobs:
          fetch-depth: 0
 
      - name: diff
-       run:  echo "CHANGED_FILES=$(git diff --name-only ${{ github.event.before }}..${{ github.event.after }})"
+       run:  echo "CHANGED_FILES=$(git diff include/ --name-only ${{ github.event.before }}..${{ github.event.after }});
+                   echo $CHANGED_FILES"
      - name: hw
        run: echo "Hello world!"
