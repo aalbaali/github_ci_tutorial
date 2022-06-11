@@ -11,8 +11,12 @@ jobs:
        with:
          fetch-depth: 0
 
-     - name: diff
-       run:  echo "CHANGED_FILES=$(git diff --name-only include/ ${{ github.event.before }}..${{ github.event.after }});
-                   echo $CHANGED_FILES"
+     - id: files
+       uses: jitterbit/get-changed-file@v1
+       run: |
+         for f in ${{ steps.files.outputs.all }}; do
+           echo $f
+         done
+
      - name: hw
        run: echo "Hello world!"
