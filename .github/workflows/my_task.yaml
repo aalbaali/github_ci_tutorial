@@ -3,7 +3,7 @@ on:
   push:
     branches:
       - devel
-  worklow_run:
+  workflow_run:
     workflows: [conditional-workflow]
     types: [completed]
 
