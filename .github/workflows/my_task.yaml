@@ -17,7 +17,7 @@ jobs:
      - name: diff
        run: |
          for f in ${{ steps.files.outputs.all }}; do
-           if [[ $f =~ .*\/include\/.*\.ddd ]]; then
+           if [[ $f =~ .?include\/.*\.ddd ]]; then
               echo $f
            fi
          done
