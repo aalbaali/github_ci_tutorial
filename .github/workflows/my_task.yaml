@@ -13,10 +13,12 @@ jobs:
 
      - id: files
        uses: jitterbit/get-changed-files@v1
+       env:
+         CHANGED_FILES: steps.files.outputs.all
 
      - name: diff
        run: |
-         for f in ${{ steps.files.outputs.all }}; do
+         for f in $CHANGED_FILES; do
            if [[ $f =~ .?include\/.*\.ddd ]]; then
               echo $f
            fi
