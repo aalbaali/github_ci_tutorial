@@ -1,0 +1,14 @@
+name: my-task
+on:
+  - push: devel
+  - worklow_run:
+      workflows: [conditional-workflow]
+      types: [completed]
+
+jobs:
+  hi:
+   name: hello
+   runs-on: ubuntu-latest
+   steps:
+     - name: hw
+       run: echo "Hello world!"
