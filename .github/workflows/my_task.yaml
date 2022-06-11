@@ -1,11 +1,11 @@
 name: my-task
 on:
-  - push:
-    - branches:
+  push:
+    branches:
       - devel
-  - worklow_run:
-      workflows: [conditional-workflow]
-      types: [completed]
+  worklow_run:
+    workflows: [conditional-workflow]
+    types: [completed]
 
 jobs:
   hi:
