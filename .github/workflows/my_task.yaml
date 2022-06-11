@@ -1,7 +1,7 @@
 name: my-task
 on:
   workflow_run:
-    workflows: [conditional-workflow, workflows-demo]
+    workflows: [workflows-demo]
     types: [completed]
 
 jobs:
